@@ -23,11 +23,11 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
-        columns = st.multiselect("Select columns for visualization", df.columns)
-
         import seaborn as sns
         import matplotlib as plt
-        
+
+        columns = st.multiselect("Select columns for visualization", df.columns)
+
         if columns:
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
