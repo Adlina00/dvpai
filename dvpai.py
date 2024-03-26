@@ -31,9 +31,6 @@ def handle_data_upload_and_visual():
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
 
-        # If the "Get Data Summary button is clicked:
-        if st.button("Get Data Summary"):
-            """Generates a data visualization summary using OpenAI (if available)."""
 
             # Define the prompt content for the OpenAI model (clarified)
             prompt_content = f"**Provide a summary of the data visualization based on the uploaded data.**"
