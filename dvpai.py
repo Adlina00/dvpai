@@ -36,12 +36,6 @@ def handle_data_upload_and_visual():
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
 
-
-def main():
-    st.image('logo.png')
-    st.subheader("Easy Data Visualized with DataVizPro")
-    return handle_data_upload_and_visual()
-
 def app_theme():
     custom_theme = {
     "primaryColor": "#7792E3",  # Accent color for interactive elements
@@ -54,6 +48,14 @@ def app_theme():
 
     # Apply the custom theme
     st.set_page_config(page_title="Custom Theme Example", layout="wide", initial_sidebar_state="expanded", theme=custom_theme)
+
+    
+def main():
+    st.image('logo.png')
+    st.subheader("Easy Data Visualized with DataVizPro")
+    return handle_data_upload_and_visual()
+
+
 
     
 
