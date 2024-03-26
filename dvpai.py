@@ -5,6 +5,7 @@ import streamlit as st
 from openai import OpenAI
 import os
 import seaborn as sns
+import matplotlib as plt
 
 from dotenv import load_dotenv
 load_dotenv()
