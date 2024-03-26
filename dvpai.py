@@ -41,7 +41,7 @@ def handle_data_upload_and_visual():
         elif chart_type == "Bar Chart":
                 st.subheader("Bar Chart")
                 # Create a bar chart
-                bar_df = df.species.value_counts()
+                bar_df = df.columns.value_counts()
                 fig, ax = plt.subplots()
                 ax.bar(bar_df.index, bar_df.values)
                 st.pyplot(fig)
