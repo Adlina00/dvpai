@@ -13,7 +13,7 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
             
 def handle_data_upload_and_visual():
     # Create a file uploader widget for data upload
-    uploaded_file = st.file_uploader("Upload a dataset file", type=["csv, xlsx, xls"])
+    uploaded_file = st.file_uploader("Upload a dataset file", type=["csv"])
 
     if uploaded_file is not None:
         #Read the uploaded csv file into a dataframe
