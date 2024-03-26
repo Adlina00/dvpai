@@ -22,6 +22,9 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
+        import seaborn as sns
+        import matplotlib as plt
+
         chart_type = st.selectbox("Select Chart Type", ["Line Plot", "Scatter Plot", "Bar Chart", "Histogram"])
 
         if chart_type == "Line Plot":
@@ -52,8 +55,7 @@ def handle_data_upload_and_visual():
                 fig, ax = plt.subplots()
                 ax.hist(df.sepal_length, bins=20)
                 st.pyplot(fig)
-        import seaborn as sns
-        import matplotlib as plt
+        
 
         columns = st.multiselect("Select columns for visualization", df.columns)
 
