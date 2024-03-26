@@ -33,26 +33,30 @@ def handle_data_upload_and_visual():
 
         # If the "Get Data Summary button is clicked:
         if st.button("Get Data Summary"):
-            #Define the prompt content for the OPENAI model
-            prompt_content = f"""Generate data visualization based on uploaded data."""
+            """Generates a data visualization summary using OpenAI (if available)."""
 
-            # Define the messages for the OpenAI model
-            messages=[
+            # Define the prompt content for the OpenAI model (clarified)
+            prompt_content = f"**Provide a summary of the data visualization based on the uploaded data.**"
+
+            # Define the messages for the OpenAI model (focused on summary)
+            messages = [
                 {
-                    "role":"system", 
-                    "content":"You are helpful in data visualization based on the uploaded data."
+                "role": "system",
+                "content": "You can help me by summarizing the data visualization."
                 },
                 {
-                    "role":"user",
-                    "content":prompt_content
+                "role": "user",
+                "content": prompt_content
                 }
-
             ]
 
-            # call openai and display the response
-            response= openai.ChatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
-            st.write("Generated Visualization Code: ")
-            st.code(response.choices[0].text.strip())
+            try:
+                # Call OpenAI and display the response (error handling)
+                response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+                st.write("Data Visualization Summary:", response.choices[0].text.strip())
+
+            except Exception as e:  # Handle potential errors with OpenAI or network issues
+                st.error("Failed to generate data visualization summary. Error:", e)
 
 def main():
     st.image('logo2.png')
