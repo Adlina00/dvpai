@@ -40,7 +40,9 @@ def handle_data_upload_and_visual():
 def main():
     st.image('logo.png')
     st.subheader("Easy Data Visualized with DataVizPro")
-    
+    return handle_data_upload_and_visual()
+
+def app_theme():
     custom_theme = {
     "primaryColor": "#7792E3",  # Accent color for interactive elements
     "backgroundColor": "#273346",  # Background color for the main content area
@@ -53,7 +55,7 @@ def main():
     # Apply the custom theme
     st.set_page_config(page_title="Custom Theme Example", layout="wide", initial_sidebar_state="expanded", theme=custom_theme)
 
-    return handle_data_upload_and_visual()
+    
 
 if __name__=="__main__":
     main()
