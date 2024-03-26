@@ -26,7 +26,7 @@ def handle_data_upload_and_visual():
 
         columns = st.multiselect("Select columns for visualization", df.columns)
 
-        if columns():
+        if columns:
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
