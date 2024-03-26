@@ -36,9 +36,6 @@ def handle_data_upload_and_visual():
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
 
-        #Create a text area for user input prompt
-        query = st.text_area("Enter your prompt: ", placeholder="Enter your prompt here")
-
 
 def main():
     st.image('logo.png')
