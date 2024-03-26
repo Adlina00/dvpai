@@ -29,15 +29,7 @@ def handle_data_upload_and_visual():
         if columns:
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
-            
-            # Display pair plot with kernel density estimate (KDE) plots
-            sns.pairplot(df[columns], kind="kde")
-
-            # Display pair plot with regression plots
-            sns.pairplot(df[columns], kind="reg")
-
-            # Display pair plot with histograms
-            sns.pairplot(df[columns], kind="hist")
+            sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
         else:
             st.warning("Please select columns for visualization.")
