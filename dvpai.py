@@ -29,6 +29,24 @@ def handle_data_upload_and_visual():
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
+            st.pyplot()def handle_data_upload_and_visual():
+    # Create a file uploader widget for data upload
+    uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
+
+    if uploaded_file is not None:
+        #Read the uploaded csv file into a dataframe
+        df = pd.read_csv(uploaded_file)
+
+        #display the uploaded data
+        st.write("Uploaded Data: ")
+        st.write(df)
+
+        columns = st.multiselect("Select columns for visualization", df.column)
+
+        def columns():
+            #Generate a pairplot based on the selected columns
+            st.write("Pairplot based on selected columns: ")
+            sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
 
         #Create a text area for user input prompt
@@ -41,17 +59,22 @@ def handle_data_upload_and_visual():
             (df.columns.tolist()) Provide a prompt generate a data visualization based on the uploaded data. - USE SINGLE CODE BLOCK with a solution. Do not explain the code - Do not comment the code. -ALWAYS WRAP UP THE CODE IN A SINGLE CODE BLOCK. - Example code format '''code'''"""
 
             # Define the messages for the OpenAI model
-            messages=[(
+            messages=[{
                 {
                     "role":"system", 
-                    "content":"You are a helpful Data Visualization assistant who generate a data visualization based on the uploaded data."
+                    "content": columns
                 },
                 {
                     "role":"user",
                     "content":prompt_content
                 }
 
-            )]
+            }]
+
+            # call openai and display the response
+            response= openai.chatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
+            st.write("Generated Visualization Code: ")
+            st.code(response.choices[0].text.strip())
 
             # call openai and display the response
             response= openai.chatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
