@@ -26,6 +26,9 @@ def handle_data_upload_and_visual():
 
         columns = st.multiselect("Select columns for visualization", df.columns)
 
+        # Disable the PyplotGlobalUseWarning
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+
         if columns:
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
