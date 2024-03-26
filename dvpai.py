@@ -29,7 +29,7 @@ def handle_data_upload_and_visual():
         if columns:
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
-            sns.pairplot(df[columns], kind="scatter")
+            
             # Display pair plot with kernel density estimate (KDE) plots
             sns.pairplot(df[columns], kind="kde")
 
