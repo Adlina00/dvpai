@@ -39,33 +39,10 @@ def handle_data_upload_and_visual():
         #Create a text area for user input prompt
         query = st.text_area("Enter your prompt: ", placeholder="Enter your prompt here")
 
-        # If the "Get Visualization button is clicked:
-        if st.button("Get Visualization"):
-            #Define the prompt content for the OPENAI model
-            prompt_content = f"""The dataset is ALREADY loaded into a DataFrame named 'df'. DO NOT load the data again. The DataFrame has the following columns: 
-            (df.columns.tolist()) Provide a prompt generate a data visualization based on the uploaded data. - USE SINGLE CODE BLOCK with a solution. Do not explain the code - Do not comment the code. -ALWAYS WRAP UP THE CODE IN A SINGLE CODE BLOCK. - Example code format '''code'''"""
-
-            # Define the messages for the OpenAI model
-            messages=[(
-                {
-                    "role":"system", 
-                    "content":"You are a helpful Data Visualization assistant who generate a data visualization based on the uploaded data."
-                },
-                {
-                    "role":"user",
-                    "content":prompt_content
-                }
-
-            )]
-
-            # call openai and display the response
-            response= openai.chat.completions. create(model = "gpt-3.5-turbo", messages=messages)
-            st.write("Generated Visualization Code: ")
-            st.code(response.choices[0].text.strip())
 
 def main():
     st.image('logo.png')
-    st.title("DataVizPro: AI-Powered Data Visualization Tool")
+    st.title("Easy Data Visualized with DataVizPro")
     return handle_data_upload_and_visual()
 
 if __name__=="__main__":
