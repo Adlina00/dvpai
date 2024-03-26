@@ -25,7 +25,7 @@ def handle_data_upload_and_visual():
 
         columns = st.multiselect("Select columns for visualization", df.column)
 
-        def columns():
+        if columns():
             #Generate a pairplot based on the selected columns
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
@@ -35,8 +35,7 @@ def handle_data_upload_and_visual():
 def main():
     st.image('logo2.png')
     st.subheader("Easy Data Visualized with DataVizPro")
-    return handle_data_upload_and_visual()
-
+    print(handle_data_upload_and_visual)
 
 if __name__=="__main__":
     main()
