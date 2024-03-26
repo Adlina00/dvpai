@@ -23,7 +23,7 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
-        columns = st.multiselect("Select columns for visualization", df.column)
+        columns = st.multiselect("Select columns for visualization", df.columns)
 
         if columns():
             #Generate a pairplot based on the selected columns
