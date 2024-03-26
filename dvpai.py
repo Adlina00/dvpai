@@ -39,7 +39,7 @@ def handle_data_upload_and_visual():
 def app_theme():
     custom_theme = {
     "primaryColor": "#7792E3",  # Accent color for interactive elements
-    "backgroundColor": "#273346",  # Background color for the main content area
+    "backgroundColor": "#C0C0C0",  # Background color for the main content area
     "secondaryBackgroundColor": "#B9F1C0",  # Background color for sidebar and most interactive widgets
     "textColor": "#FFFFFF",  # Color used for almost all text
     "font": "sans serif",  # Font family for all text in the app, except code blocks
@@ -49,7 +49,7 @@ def app_theme():
     # Apply the custom theme
     st.set_page_config(page_title="Custom Theme Example", layout="wide", initial_sidebar_state="expanded", theme=custom_theme)
 
-    
+
 def main():
     st.image('logo.png')
     st.subheader("Easy Data Visualized with DataVizPro")
