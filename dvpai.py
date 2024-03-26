@@ -25,6 +25,8 @@ def handle_data_upload_and_visual():
         import seaborn as sns
         import matplotlib as plt
 
+        columns = st.multiselect("Select columns for visualization", df.columns)
+
         chart_type = st.selectbox("Select Chart Type", ["Line Plot", "Scatter Plot", "Bar Chart", "Histogram"])
 
         if chart_type == "Line Plot":
