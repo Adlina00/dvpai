@@ -30,6 +30,8 @@ def handle_data_upload_and_visual():
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
+        else:
+            st.warning("Please select columns for visualization.")
 
 
 def main():
