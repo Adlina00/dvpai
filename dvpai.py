@@ -70,10 +70,10 @@ def handle_data_upload_and_visual():
         query = st.text_area("Enter your prompt: ", placeholder="Enter your prompt here")
 
 
-def main():
+def display_app_header():
     st.image('logo.png')
     st.subheader("Easy Data Visualized with DataVizPro")
-    return handle_data_upload_and_visual()
+    
 
 if __name__=="__main__":
     main()
