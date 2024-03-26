@@ -22,7 +22,7 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
-        chart_type = st.sidebar.selectbox("Select Chart Type", ["Line Plot", "Scatter Plot", "Bar Chart", "Histogram"])
+        chart_type = st.selectbox("Select Chart Type", ["Line Plot", "Scatter Plot", "Bar Chart", "Histogram"])
 
         if chart_type == "Line Plot":
                 st.subheader("Line Plot")
