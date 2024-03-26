@@ -6,9 +6,7 @@ import os
 
 from dotenv import load_dotenv
 load_dotenv()
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
-)
+openai_api_key = st.secrets["openai_api_key"]
 
 def handle_data_upload_and_visual():
     # Create a file uploader widget for data upload
