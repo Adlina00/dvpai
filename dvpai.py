@@ -41,41 +41,20 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
         
+        import seaborn as sns
+        import matplotlib as plt
 
-        # function to create user defined chart
-    def create_user_defined_chart(n_index, def_x_idx, def_y_idx, def_color_idx, color_scale, chosen_template):
-        chosen_chart = st.selectbox('Chart Type:', options=CHART_TYPES, key=KEYLIST[n_index])
-        chosen_X = st.selectbox('Set your X variables:', df.columns, key=KEYLIST[n_index], index=def_x_idx)
-        chosen_Y = st.selectbox('Set your Y/Target variable:', df.columns, key=KEYLIST[n_index], index=def_y_idx)
-        if chosen_chart not in CHARTS_WITHOUT_COLOR:
-            # create color list
-            color_options = ['None']
-            color_options.extend(df.columns.tolist())
-            
-            # ask user for color choice 
-            chosen_color = st.selectbox('Color variable:', color_options, key=KEYLIST[n_index], index=def_color_idx)
-            if chosen_color == 'None':
-                # set the color and color scale to None
-                chosen_color = None
-                color_scale = None
-            
-        else:
-            chosen_color = None
-    
-        chosen_stat = st.selectbox('Stat Type:', STAT_TYPES, key=KEYLIST[n_index])
-        
-        # animated chart
-        animated = st.checkbox("Animated Chart", key=KEYLIST[n_index])
-        
-        if animated:
-            animated_x = st.selectbox('Animation X Variable:', df.columns, key=KEYLIST[n_index], index=def_x_idx)
-            animated_y = st.selectbox('Animation Y Variable', df.columns, key=KEYLIST[n_index], index=def_y_idx)
-        else:
-            animated_x = None
-            animated_y = None
+        columns = st.multiselect("Select columns for visualization", df.columns)
 
         
-    
+        # Disable the PyplotGlobalUseWarning
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+
+        if columns:
+            #Generate a pairplot based on the selected columns
+            st.write("Pairplot based on selected columns: ")
+            sns.pairplot(df[columns], kind="scatter")
+            st.pyplot()
 
 def app_theme():
     custom_theme = {
@@ -96,6 +75,9 @@ def main():
     st.subheader("Easy Data Visualized with DataVizPro")
     return handle_data_upload_and_visual()
 
+
+
+    
 
 if __name__=="__main__":
     main()
