@@ -27,21 +27,7 @@ def handle_data_upload_and_visual():
 
         columns = st.multiselect("Select columns for visualization", df.columns)
 
-        # Sample data (replace with your actual data)
-        data = {"A": [10, 20, 30, 40], "B": [5, 15, 25, 35]}
-
-        # Function to display the chosen chart
-        def display_chart(chart_type, data):
-            """Displays the selected chart type with the provided data."""
-            if chart_type == "Line Chart":
-                st.line_chart(data)
-            elif chart_type == "Bar Chart":
-                st.bar_chart(data)
-            elif chart_type == "Area Chart":
-                st.area_chart(data)
-            else:
-                st.write("Invalid chart type selected.")
-
+        
         # Disable the PyplotGlobalUseWarning
         st.set_option('deprecation.showPyplotGlobalUse', False)
 
