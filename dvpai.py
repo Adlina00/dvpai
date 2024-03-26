@@ -37,7 +37,7 @@ def handle_data_upload_and_visual():
             prompt_content = f"""Read and summarize the data visualization in an simple english."""
 
             # Define the messages for the OpenAI model
-            messages=[(
+            messages=[
                 {
                     "role":"system", 
                     "content":"You are a helpful Data Visualization summarizer based on the uploaded data."
@@ -47,10 +47,10 @@ def handle_data_upload_and_visual():
                     "content":prompt_content
                 }
 
-            )]
+            ]
 
             # call openai and display the response
-            response= openai.chatCompletions. create(model = "gpt-3.5-turbo", messages=messages)
+            response= openai.ChatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
             st.write("Generated Visualization Code: ")
             st.code(response.choices[0].text.strip())
 
