@@ -29,37 +29,6 @@ def handle_data_upload_and_visual():
 
         chart_type = st.selectbox("Select Chart Type", ["Line Plot", "Scatter Plot", "Bar Chart", "Histogram"])
 
-        if chart_type == "Line Plot":
-                st.subheader("Line Plot")
-                # Create a line plot
-                fig, ax = plt.subplots()
-                ax.plot(df.sepal_length, df.sepal_width)
-                st.pyplot(fig)
-
-        elif chart_type == "Scatter Plot":
-                st.subheader("Scatter Plot")
-                # Create a scatter plot
-                fig, ax = plt.subplots()
-                ax.scatter(df.petal_length, df.petal_width)
-                st.pyplot(fig)
-
-        elif chart_type == "Bar Chart":
-                st.subheader("Bar Chart")
-                # Create a bar chart
-                bar_df = df.columns.value_counts()
-                fig, ax = plt.subplots()
-                ax.bar(bar_df.index, bar_df.values)
-                st.pyplot(fig)
-
-        elif chart_type == "Histogram":
-                st.subheader("Histogram")
-                # Create a histogram
-                fig, ax = plt.subplots()
-                ax.hist(df.sepal_length, bins=20)
-                st.pyplot(fig)
-        
-
-        columns = st.multiselect("Select columns for visualization", df.columns)
 
         # Disable the PyplotGlobalUseWarning
         st.set_option('deprecation.showPyplotGlobalUse', False)
