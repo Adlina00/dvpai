@@ -55,20 +55,6 @@ def handle_data_upload_and_visual():
             st.pyplot()
 
 
-def app_theme():
-    custom_theme = {
-    "primaryColor": "#7792E3",  # Accent color for interactive elements
-    "backgroundColor": "#C0C0C0",  # Background color for the main content area
-    "secondaryBackgroundColor": "#B9F1C0",  # Background color for sidebar and most interactive widgets
-    "textColor": "#FFFFFF",  # Color used for almost all text
-    "font": "sans serif",  # Font family for all text in the app, except code blocks
-    "fontSize": 16  # Font size for text
-    }
-
-    # Apply the custom theme
-    st.set_page_config(page_title="Custom Theme Example", layout="wide", initial_sidebar_state="expanded", theme=custom_theme)
-
-
 def main():
     st.image('logo2.png')
     st.subheader("Easy Data Visualized with DataVizPro")
