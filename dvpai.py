@@ -79,14 +79,7 @@ def handle_data_upload_and_visual():
             animated_y = None
 
         
-        # Disable the PyplotGlobalUseWarning
-    st.set_option('deprecation.showPyplotGlobalUse', False)
-
-    if columns:
-                #Generate a pairplot based on the selected columns
-                st.write("Pairplot based on selected columns: ")
-                sns.pairplot(df[columns], kind="scatter")
-                st.pyplot()
+    
 
 def app_theme():
     custom_theme = {
