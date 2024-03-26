@@ -46,7 +46,7 @@ def handle_data_upload_and_visual():
 
             # Define the messages for the OpenAI model
             model = "gpt-3.5-turbo"
-            messages=[{
+            messages=[(
                 {
                     "role":"system", 
                     "content":"You are a helpful Data Visualization assistant who generate a data visualization based on the uploaded data."
@@ -56,7 +56,7 @@ def handle_data_upload_and_visual():
                     "content":prompt_content
                 }
 
-            }]
+            )]
 
             # call openai and display the response
             response= openai.chatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
