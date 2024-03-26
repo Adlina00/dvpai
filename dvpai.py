@@ -51,7 +51,7 @@ def app_theme():
 
 
 def main():
-    st.image('logo.png')
+    st.image('logo2.png')
     st.subheader("Easy Data Visualized with DataVizPro")
     return handle_data_upload_and_visual()
 
