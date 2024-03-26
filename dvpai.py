@@ -1,4 +1,3 @@
-from ast import main
 import openai
 import pandas as pd
 import streamlit as st
