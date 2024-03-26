@@ -3,8 +3,7 @@ import pandas as pd
 import streamlit as st
 from openai import OpenAI
 import os
-import seaborn as sns
-import matplotlib as plt
+
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -22,6 +21,9 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
+        import seaborn as sns
+        import matplotlib as plt
+        
         columns = st.multiselect("Select columns for visualization", df.column)
 
         if columns:
