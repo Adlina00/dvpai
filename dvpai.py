@@ -42,7 +42,7 @@ def handle_data_upload_and_visual():
 
 def main():
     st.image('logo.png')
-    st.title("Easy Data Visualized with DataVizPro")
+    st.subheader("Easy Data Visualized with DataVizPro")
     return handle_data_upload_and_visual()
 
 if __name__=="__main__":
