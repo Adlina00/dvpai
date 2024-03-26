@@ -30,6 +30,7 @@ def handle_data_upload_and_visual():
             (df.columns.tolist()) Provide a prompt generate a data visualization based on the uploaded data. - USE SINGLE CODE BLOCK with a solution. Do not explain the code - Do not comment the code. -ALWAYS WRAP UP THE CODE IN A SINGLE CODE BLOCK. - Example code format '''code'''"""
 
             # Define the messages for the OpenAI model
+            model = "gpt-3.5-turbo"
             messages=[{
                 {
                     "role":"system", 
