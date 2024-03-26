@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 from openai import OpenAI
 import os
+import seaborn as sns
 
 
 from dotenv import load_dotenv
@@ -13,7 +14,7 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
             
 def handle_data_upload_and_visual():
     # Create a file uploader widget for data upload
-    uploaded_file = st.file_uploader("Upload a dataset file", type=["csv"])
+    uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
     if uploaded_file is not None:
         #Read the uploaded csv file into a dataframe
@@ -23,9 +24,6 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
-        import seaborn as sns
-        import matplotlib as plt
-
         columns = st.multiselect("Select columns for visualization", df.columns)
 
         if columns:
@@ -33,9 +31,29 @@ def handle_data_upload_and_visual():
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
-        else:
-            st.warning("Please select columns for visualization.")
 
+        # If the "Get Data Summary button is clicked:
+        if st.button("Get Data Summary"):
+            #Define the prompt content for the OPENAI model
+            prompt_content = f"""Read and summarize the data visualization in an simple english."""
+
+            # Define the messages for the OpenAI model
+            messages=[{
+                {
+                    "role":"system", 
+                    "content":"You are a helpful Data Visualization summarizer based on the uploaded data."
+                },
+                {
+                    "role":"user",
+                    "content":prompt_content
+                }
+
+            }]
+
+            # call openai and display the response
+            response= openai.chatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
+            st.write("Generated Visualization Code: ")
+            st.code(response.choices[0].text.strip())
 
 def main():
     st.image('logo2.png')
