@@ -20,6 +20,14 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
 
+        columns = st.multiselect("Select columns for visualization", df.column)
+
+        if columns:
+            #Generate a pairplot based on the selected columns
+            st.write("Pairplot based on selected columns: ")
+            sns.pairplot(df[columns], kind="scatter")
+            st.pyplot()
+
         #Create a text area for user input prompt
         query = st.text_area("Enter your prompt: ", placeholder="Enter your prompt here")
 
