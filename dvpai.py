@@ -34,13 +34,13 @@ def handle_data_upload_and_visual():
         # If the "Get Data Summary button is clicked:
         if st.button("Get Data Summary"):
             #Define the prompt content for the OPENAI model
-            prompt_content = f"""Briefly explain the chart."""
+            prompt_content = f"""Generate caption for the chart."""
 
             # Define the messages for the OpenAI model
             messages=[
                 {
                     "role":"system", 
-                    "content":"Summarize the chart based on the uploaded data."
+                    "content":"Generate caption for the visualization created."
                 },
                 {
                     "role":"user",
