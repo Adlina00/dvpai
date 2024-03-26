@@ -27,9 +27,6 @@ def handle_data_upload_and_visual():
 
         columns = st.multiselect("Select columns for visualization", df.columns)
 
-        chart_type = st.selectbox("Select Chart Type", ["Line Plot", "Scatter Plot", "Bar Chart", "Histogram"])
-
-
         # Disable the PyplotGlobalUseWarning
         st.set_option('deprecation.showPyplotGlobalUse', False)
 
