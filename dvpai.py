@@ -23,7 +23,7 @@ def handle_data_upload_and_visual():
 
         import seaborn as sns
         import matplotlib as plt
-        
+
         columns = st.multiselect("Select columns for visualization", df.column)
 
         if columns:
@@ -63,7 +63,7 @@ def handle_data_upload_and_visual():
 def main():
     st.image('logo.png')
     st.title("DataVizPro: AI-Powered Data Visualization Tool")
-    handle_data_upload_and_visual()
+    response= handle_data_upload_and_visual()
 
 if __name__=="__main__":
     main()
