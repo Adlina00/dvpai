@@ -25,13 +25,13 @@ def handle_data_upload_and_visual():
         import seaborn as sns
         import matplotlib as plt
 
-    columns = st.multiselect("Select columns for visualization", df.column)
+        columns = st.multiselect("Select columns for visualization", df.column)
 
-    if columns:
-            #Generate a pairplot based on the selected columns
-            st.write("Pairplot based on selected columns: ")
-            sns.pairplot(df[columns], kind="scatter")
-            st.pyplot()
+        if columns:
+                #Generate a pairplot based on the selected columns
+                st.write("Pairplot based on selected columns: ")
+                sns.pairplot(df[columns], kind="scatter")
+                st.pyplot()
 
 
 def main():
