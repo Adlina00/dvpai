@@ -41,10 +41,6 @@ def handle_data_upload_and_visual():
         st.write("Uploaded Data: ")
         st.write(df)
         
-        import seaborn as sns
-        import matplotlib as plt
-
-        columns = st.multiselect("Select columns for visualization", df.columns)
 
         # function to create user defined chart
     def create_user_defined_chart(n_index, def_x_idx, def_y_idx, def_color_idx, color_scale, chosen_template):
