@@ -50,7 +50,7 @@ def handle_data_upload_and_visual():
             )]
 
             # call openai and display the response
-            response= openai.chatCompletion. create(model = "gpt-3.5-turbo", messages=messages)
+            response= openai.chat.completions. create(model = "gpt-3.5-turbo", messages=messages)
             st.write("Generated Visualization Code: ")
             st.code(response.choices[0].text.strip())
 
