@@ -30,7 +30,7 @@ def handle_data_upload_and_visual():
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
-            st.write("Right click and save your image for further use!")
+            st.write("Right click and save your image for further")
 
             # Calculate descriptive statistics for the selected columns
             summary_stats = df[columns].describe()
@@ -39,54 +39,32 @@ def handle_data_upload_and_visual():
             st.write("**Chart Summary:**")
             st.write(summary_stats)
 
-def calculate_summary_statistics(data):
-    """
-    Calculates descriptive statistics for the provided data.
+    def generate_chart_summary(data):
+        """
+        This function analyzes the chart data (`data`) and generates a summary. 
+        Calculates descriptive statistics for the provided data.
 
-    Args:
-        data (pd.DataFrame): The DataFrame containing the selected columns.
+        Replace the placeholder logic with calculations relevant to your chart type
+        (e.g., trends, correlations, outliers).
 
-    Returns:
-        str: A string summarizing the descriptive statistics.
-    """
-    summary_stats = data.describe().to_string(index=False)
-    return summary_stats
+        Args:
+            data (pd.DataFrame): The DataFrame containing the selected columns.
 
-def analyze_chart(data):
-    """
-    Analyzes the chart data (`data`) and generates a summary of key insights.
+        Returns:
+            str: A string summarizing the key insights from the chart.
+            str: A string summarizing the descriptive statistics.
+        """
 
-    Replace the placeholder logic with calculations and interpretations relevant to
-    your chart type (e.g., trends, correlations, outliers).
+        summary_text = ""
 
-    Args:
-        data (pd.DataFrame): The DataFrame containing the selected columns.
+        # Example calculations (replace with specific logic)
+        average_values = data.mean().to_string(index=False)
+        summary_text += f"Average values:\n{average_values}\n"
 
-    Returns:
-        str: A string summarizing the key insights from the chart.
-    """
+        # Add more calculations and formatting based on your chart and desired insights
 
-    summary_text = ""
-
-    # Calculate summary statistics
-    summary_stats = calculate_summary_statistics(data)
-    summary_text += f"**Descriptive Statistics:**\n{summary_stats}\n"
-
-    # Example analysis for pairplots (replace with specific logic)
-
-    # Identify correlations
-    correlations = data.corrcoef().unstack().dropna().sort_values(ascending=False)
-    strong_correlations = correlations[abs(correlations) > 0.7]
-
-    if not strong_correlations.empty:
-        corr_list = strong_correlations.index.tolist()
-        corr_values = strong_correlations.values.tolist()
-        corr_text = ", ".join([f"{corr[0]} ({corr[1]:.2f})" for corr in zip(corr_list, corr_values)])
-        summary_text += f"**Strong Correlations:** {corr_text}\n"
-
-    # Add more analysis and interpretation based on your chart type
-
-    return summary_text
+        return summary_text
+    
 
 def main():
     st.image('logo2.png')
