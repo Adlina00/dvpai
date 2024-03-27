@@ -52,7 +52,7 @@ def handle_data_upload_and_visual():
 
             try:
                 # Call OpenAI and display the response (error handling)
-                response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+                response = openai.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
                 st.write("Data Visualization Summary:", response.choices[0].text.strip())
 
             except Exception as e:  # Handle potential errors with OpenAI or network issues
