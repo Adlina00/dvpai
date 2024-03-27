@@ -31,6 +31,13 @@ def handle_data_upload_and_visual():
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
 
+            # Calculate descriptive statistics for the selected columns
+            summary_stats = df[columns].describe()
+
+            # Display the summary statistics
+            st.write("**Chart Summary:**")
+            st.write(summary_stats)
+
         # If the "Get Data Summary button is clicked:
         if st.button("Get Data Summary"):
             """Generates a data visualization summary using OpenAI (if available)."""
