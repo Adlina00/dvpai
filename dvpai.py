@@ -57,11 +57,21 @@ def handle_data_upload_and_visual():
 
         summary_text = ""
 
-        # Example calculations (replace with specific logic)
-        average_values = data.mean().to_string(index=False)
-        summary_text += f"Average values:\n{average_values}\n"
+        # Calculate summary statistics
+        summary_stats = generate_chart_summary(data)
+        summary_text += f"**Descriptive Statistics:**\n{summary_stats}\n"
 
-        # Add more calculations and formatting based on your chart and desired insights
+        # Example analysis for pairplots (replace with specific logic)
+
+        # Identify correlations
+        correlations = data.corrcoef().unstack().dropna().sort_values(ascending=False)
+        strong_correlations = correlations[abs(correlations) > 0.7]
+
+        if not strong_correlations.empty:
+            corr_list = strong_correlations.index.tolist()
+            corr_values = strong_correlations.values.tolist()
+            corr_text = ", ".join([f"{corr[0]} ({corr[1]:.2f})" for corr in zip(corr_list, corr_values)])
+            summary_text += f"**Strong Correlations:** {corr_text}\n"
 
         return summary_text
     
