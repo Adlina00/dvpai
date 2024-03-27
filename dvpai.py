@@ -56,7 +56,7 @@ def handle_data_upload_and_visual():
                 st.write("Data Visualization Summary:", response.choices[0].text.strip())
 
             except Exception as e:  # Handle potential errors with OpenAI or network issues
-               st.error("Failed to generate data visualization summary. Error:", e)
+               st.error(e)
 
 def main():
     st.image('logo2.png')
