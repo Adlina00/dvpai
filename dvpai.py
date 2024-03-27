@@ -30,6 +30,7 @@ def handle_data_upload_and_visual():
             st.write("Pairplot based on selected columns: ")
             sns.pairplot(df[columns], kind="scatter")
             st.pyplot()
+            st.write("Right click and save your image for further use!")
 
             # Calculate descriptive statistics for the selected columns
             summary_stats = df[columns].describe()
