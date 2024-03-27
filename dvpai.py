@@ -41,8 +41,7 @@ def handle_data_upload_and_visual():
 
     def generate_chart_summary(data):
         """
-        This function analyzes the chart data (`data`) and generates a summary. 
-        Calculates descriptive statistics for the provided data.
+        This function analyzes the chart data (`data`) and generates a summary and calculates descriptive statistics for the provided data.
 
         Replace the placeholder logic with calculations relevant to your chart type
         (e.g., trends, correlations, outliers).
@@ -51,8 +50,7 @@ def handle_data_upload_and_visual():
             data (pd.DataFrame): The DataFrame containing the selected columns.
 
         Returns:
-            str: A string summarizing the key insights from the chart.
-            str: A string summarizing the descriptive statistics.
+            str: A string summarizing the key insights from the chart and summarizing the descriptive statistics.
         """
 
         summary_text = ""
